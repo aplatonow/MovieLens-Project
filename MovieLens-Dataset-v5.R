@@ -68,7 +68,7 @@ edx %>% group_by(title) %>%
 
 
 # Key findings:
-# The analysis of movie’s distribution shows that each of movies has very different number of ratings.
+# The analysis of movieâ€™s distribution shows that each of movies has very different number of ratings.
 # Along with this, some movies have a way more number of ratings than the other.
 # This effect can be quite significant and therefore can be used to build the algorithm 
 # to predict movie ratings.
@@ -84,7 +84,7 @@ edx %>% count(userId) %>% mutate(Number_of_ratings = n) %>%
   ggtitle("Number of ratings by Users") 
 
 # Key findings:
-# User’s distribution plot supports the idea that the activity of users is not the same
+# Userâ€™s distribution plot supports the idea that the activity of users is not the same
 # and some of users are extremely active in terms of ratings.  
 # This effect should be definitely strong to be considered for building the predict algorithm.
 
@@ -458,12 +458,12 @@ predicted_ratings <- validation %>%
   left_join(genre_reg, by = 'genres') %>%
   mutate(pred_reg = mu + b_i + b_u + b_g) %>% 
   .$pred_reg
-# Evaluating the RMSE of Regularized model's algorithm
+# Evaluating the RMSE of final algorithm
 model_6_VAL <- RMSE(validation$rating,predicted_ratings)
 model_6_VAL
 
 
-# RMSE results of Regularized model
+# RMSE results of final algorithm
 rmse_results <- bind_rows(rmse_results,
                           tibble(method="Regularized Movie + User + Genre Effects Model VAL",  
                                      RMSE = model_6_VAL ))
